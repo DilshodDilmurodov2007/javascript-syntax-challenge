@@ -1,4 +1,7 @@
-import { chiqar, jami } from "./fundamentalFunctions.js";
+import { jami, birNechtasiUchun, hammasiUchun } from "./fundamentalFunctions.js";
 
-chiqar("Salom, dunyo!")
-chiqar(jami(1,2,3,4))
+const a = [2,4,6]
+const b = birNechtasiUchun(a, n => n % 2 ===0)
+// console.log(b)
+const c = hammasiUchun(a, n => n % 2 === 0)
+// console.log(c)

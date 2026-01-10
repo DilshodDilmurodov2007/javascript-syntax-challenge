@@ -11,7 +11,6 @@ function filter(array, callback) {
     }
     return newArray
 }
-
 const numbers = [1,2,3,4,5,6,7]
 const filtered = filter(numbers, (n, idx) => n % 2 === 0)
 // console.log(filtered)
@@ -55,31 +54,21 @@ function find(array, callback) {
     return undefined
 }
 
-console.log(
-    // find(numbers_3, n => n % 2 === 0 && n % 4 === 0)
-)
 
-// reduce using for
-function reduce(array, callback, initialValue) {
-    let acc = initialValue
-    for(let i=0; i<array.length; i++) {
-       acc = callback(acc, array[i], i, array)
-    }
-    return acc
-}
+// splice => accepts (startingIndex, numberOfElementsToRemoveAfterThat, )
+const arr = [0,1,2,3,4]
+const excludedItems = arr.splice(0,2)
+// console.log(excludedItems, arr);
 
-const mappy = numbers_3.map(n=> String(n)+"hello")
-// console.log(mappy.reduce((acc, el) => acc + el, "hello"))
-// reduce(accumulator, current, index, array)
+// reduce
+const fruits = [
+    {name: "Apple", calories: 123},
+    {name: "Banana", calories: 98},
+    {name: "Coconut", calories: 67},
+    {name: "Cherry", calories: 36},
+    {name: "Melon", calories: 220}
+]
 
-// console.log(reduce(mappy, (acc, curr) => {return acc + curr}))
-
-import { harBirElement, chiqar, elementlar, jami, massivlarniQosh } from './myLibrary.js/fundamentalFunctions.js'
-
-
-// harBirElement(elementlar(1,2,3,4,5), n => chiqar(n*2))
-// chiqar(jami(1,2,3,4))
-// const a = elementlar(1,2,3,4,5)
-// chiqar(a)
-
-chiqar()
+const maxVal = fruits.reduce((prev, next) => next.calories > prev.calories ? next : prev)
+const minVal = fruits.reduce((prev, next) => next.calories < prev.calories ? next : prev)
+console.log(minVal);

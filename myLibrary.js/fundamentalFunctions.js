@@ -1,11 +1,6 @@
-function chiqar(returned) {
-    if(!returned) return
-    console.log(returned)
-}
-function elementlar(...values) {
-    if(!values) return
-    return values
-}
+// Array methods
+
+// total
 function jami(...values) {
     let data = values
     let initial = 0
@@ -15,15 +10,10 @@ function jami(...values) {
     }
     return initial
 }
-
-// Array methods
-
 // adding arrays
 function massivlarniQosh(...arrays) {
     return [...arrays]
 }
-
-
 // forEach
 function harBirElement(array, callback) {
     if(!array || !callback) return
@@ -64,6 +54,36 @@ function elementniTopish(array, callback) {
     }
     return undefined
 }
+// findIndex
+function elementniIndexiniTopish(array, callback) {
+    if(!array || !callback) return
+    for(let i=0; i<array.length; i++) {
+        let el = callback(array[i], i, array)
+        if(el) return i
+    }
+    return undefined
+}
+// some
+function birNechtasiUchun(array, callback) {
+    for(let i=0; i<array.length; i++) {
+        let el = callback(array[i], i, array)
+        if(el) {
+            return true
+        }
+    }
+    return false
+}
+// every
+function hammasiUchun(array, callback) {
+    for(let i=0; i<array.length; i++) {
+        let el = callback(array[i], i, array)
+        if(!el) {
+            return false
+        } 
+    }
+    return true
+}
+
 // reduce
 function elementlarniIxchamlash(array, callback, initialValue) {
     if(!array || !callback) return
@@ -77,6 +97,15 @@ function elementlarniIxchamlash(array, callback, initialValue) {
     return acc
 }
 
-export {chiqar, elementlar, jami, massivlarniQosh,
-    harBirElement, elementlarniOzgartirish, elementlarniSaralash, elementniTopish, elementlarniIxchamlash,
+export { 
+    jami, 
+    massivlarniQosh,
+    harBirElement, 
+    elementlarniOzgartirish, 
+    elementlarniSaralash, 
+    elementniTopish, 
+    elementniIndexiniTopish, 
+    birNechtasiUchun, 
+    hammasiUchun,
+    elementlarniIxchamlash,
 }
