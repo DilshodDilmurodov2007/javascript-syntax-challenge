@@ -55,7 +55,8 @@ function find(array, callback) {
 }
 
 
-// splice => accepts (startingIndex, numberOfElementsToRemoveAfterThat, )
+// splice => accepts (startingIndex, numberOfElementsToRemoveAfterThat, ...addingValues)
+// It mutates the initial array
 const arr = [0,1,2,3,4]
 const excludedItems = arr.splice(0,2)
 // console.log(excludedItems, arr);
