@@ -1,7 +1,10 @@
-import { jami, birNechtasiUchun, hammasiUchun } from "./fundamentalFunctions.js";
+import { useState } from "./react.js";
 
-const a = [2,4,6]
-const b = birNechtasiUchun(a, n => n % 2 ===0)
-// console.log(b)
-const c = hammasiUchun(a, n => n % 2 === 0)
-// console.log(c)
+const [hello, setHello] = useState(() => {
+    const initial = "hello"
+    return initial
+})
+
+console.log(hello());
+setHello({hello: hello()})
+console.log(hello());
