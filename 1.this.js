@@ -6,6 +6,7 @@ const C = {
     name: "Dan Best",
     age: 18,
     // age_with_name: C.age + C.name, // Cannot access 'C' before initialization
+    aaa: this.name + String(this.age), // undefined undefined
     age_with_name() {
         return this.age +" "+ this.name
     },
@@ -13,6 +14,7 @@ const C = {
     average_score: function() {
         // if we destructure the C, it works
         // return .exam_scores.reduce((a,b)=> a+b) / C.exam_scores.length // this is not working here.
+        if(!Array.isArray(this.exam_scores) || this.exam_scores.length ===0) return null
         return this.exam_scores.reduce((a,b)=> a+b) / this.exam_scores.length
     },
     name_char_count: function() {
@@ -22,10 +24,10 @@ const C = {
         }
         return leng
     },
-    name_char_count_2: function() {
-        return name.length
+    name_char_count_2: function() { 
+        return name.length // referencing a variable called name in scope
     }
-}
+} 
 
 // when we destructure the object, the method is no longer called as a method of C
 const { average_score } = C
@@ -33,11 +35,12 @@ const { average_score } = C
 
 // when we call the function as a method of C, it works with 'this'
 console.log(C.name_char_count());
-console.log(C.name_char_count_2()); // here, name will be undefined
+// console.log(C.name_char_count_2()); // here, name will be undefined
 console.log(C.age_with_name());
 
 
 // if we use this (or globalThis), globally, it returns the Window object
-console.log(this);
-console.log(globalThis);
+// console.log(this);
+// console.log(globalThis);
 
+console.log(C.aaa);
